@@ -1,0 +1,636 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pavan D Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pavan D, AI Engineer. End-to-end AI applications, websites, customized chatbots, and LLM evaluation, observability and gateway projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: AgentVerse-style long page. Nav, split hero with node graph, tool marquee, case-study rows, architecture diagram, services, process, about, stack, FAQ, contact. */
+:root {
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --ink: #0e1730;
+  --muted: #55617f;
+  --line: #d6deec;
+  --accent: #0a7f9e;
+  --accent-ink: #ffffff;
+  --warm: #b45f06;
+  --glow: rgba(10, 127, 158, 0.14);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0f1f;
+    --surface: #111a31;
+    --ink: #e9edf8;
+    --muted: #9ba7c6;
+    --line: #22305a;
+    --accent: #4dd4f0;
+    --accent-ink: #04121a;
+    --warm: #f2b25c;
+    --glow: rgba(77, 212, 240, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a0f1f;
+  --surface: #111a31;
+  --ink: #e9edf8;
+  --muted: #9ba7c6;
+  --line: #22305a;
+  --accent: #4dd4f0;
+  --accent-ink: #04121a;
+  --warm: #f2b25c;
+  --glow: rgba(77, 212, 240, 0.16);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 30;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; letter-spacing: -0.02em; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+.section { padding-block: 88px 0; }
+.section h2 { font-size: clamp(30px, 4.4vw, 46px); max-width: 20ch; }
+.lede-main strong { color: var(--ink); font-weight: 500; }
+.lede { color: var(--muted); max-width: 62ch; margin: 16px 0 0; font-size: 17px; }
+
+/* Header */
+.site-head {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 20px; text-decoration: none; letter-spacing: -0.02em; }
+.brand span { color: var(--accent); }
+.brand small { font-family: var(--font-mono); font-weight: 400; font-size: 11px; letter-spacing: 0.14em; color: var(--muted); margin-left: 8px; text-transform: uppercase; }
+.nav { display: flex; align-items: center; gap: 22px; font-size: 14px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 15px/1 var(--font-body);
+  padding: 13px 20px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-ink);
+  text-decoration: none; border: 1px solid var(--accent); cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--accent); filter: none; }
+.nav .btn { padding: 10px 16px; font-size: 14px; color: var(--accent-ink); }
+.nav .btn:hover { color: var(--accent-ink); }
+
+/* Hero */
+.hero { padding-block: 60px 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); margin: 0 0 22px; }
+.badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--glow); }
+.hero h1 { font-size: clamp(36px, 5.6vw, 64px); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { font-size: 18px; }
+.hero .lede strong { color: var(--ink); font-weight: 500; }
+.tagline { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 22px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--ink); }
+.tagline span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: middle; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 44px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kpis li { padding: 18px 16px 18px 0; }
+.kpis li + li { padding-left: 16px; border-left: 1px solid var(--line); }
+.kpis b { display: block; font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.02em; line-height: 1.1; }
+.kpis span { font-size: 13px; color: var(--muted); }
+.hv { border: 1px solid var(--line); border-radius: 20px; padding: 22px; min-width: 0; background: radial-gradient(ellipse at 50% 0%, var(--glow), transparent 70%), var(--surface); }
+.hv-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.hv-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+.hv-live { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.hv-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--glow); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 0 16px; padding: 0; }
+.chips li { font-family: var(--font-mono); font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); background: var(--bg); }
+.chat { border: 1px solid var(--line); border-radius: 16px; background: var(--bg); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.chat-head b { display: block; font-size: 14px; font-weight: 500; line-height: 1.2; }
+.chat-head small { display: block; font-size: 12px; color: var(--muted); }
+.av { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; flex: none; }
+.msg { max-width: 86%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.45; position: relative; }
+.msg time { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 10px; opacity: 0.6; }
+.msg.bot { align-self: flex-start; background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.msg.user { align-self: flex-end; background: var(--accent); color: var(--accent-ink); border-bottom-right-radius: 4px; }
+.msg .src { display: block; margin-top: 6px; font-family: var(--font-mono); font-size: 11px; color: var(--accent); }
+.chat-foot { margin-top: 2px; padding: 9px 12px; border-radius: 10px; font-size: 13px; color: var(--accent); border: 1px dashed var(--accent); text-align: center; }
+.hv-note { margin: 12px 0 0; font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+
+/* Tool marquee */
+.tools { margin-top: 56px; }
+.tools .cap { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.marq { overflow: hidden; border-block: 1px solid var(--line); padding-block: 16px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.track { display: flex; width: max-content; animation: slide 44s linear infinite; }
+.track ul { display: flex; gap: 40px; margin: 0; padding: 0 20px; list-style: none; }
+.track li { font-family: var(--font-mono); font-size: 15px; color: var(--muted); white-space: nowrap; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Case studies */
+.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 44px; border-top: 1px solid var(--line); }
+.cases { margin-top: 40px; }
+.cases .case:first-child { border-top: 0; padding-top: 0; }
+.case.rev .case-text { order: 2; }
+.case .kind { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+.case h3 { font-size: clamp(26px, 3.4vw, 36px); }
+.case p { color: var(--muted); margin: 16px 0 0; }
+.case .lab { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; }
+.result { display: flex; align-items: baseline; gap: 10px; margin-top: 20px; padding: 12px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); width: fit-content; max-width: 100%; }
+.result b { font-family: var(--font-display); font-size: 32px; color: var(--warm); line-height: 1; letter-spacing: -0.02em; }
+.result span { font-size: 14px; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.tags span { font-family: var(--font-mono); font-size: 12px; padding: 4px 10px; border-radius: 6px; background: var(--surface); color: var(--muted); border: 1px solid var(--line); }
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
+.viz .vt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; }
+.flow li { position: relative; padding: 0 0 18px 34px; min-width: 0; }
+.flow li:last-child { padding-bottom: 0; }
+.flow li::before { content: ""; position: absolute; left: 0; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); background: var(--surface); }
+.flow li::after { content: ""; position: absolute; left: 6px; top: 22px; bottom: 2px; width: 2px; background: var(--line); }
+.flow li:last-child::after { display: none; }
+.flow li:last-child::before { background: var(--accent); }
+.flow b { display: block; font-weight: 500; font-size: 15px; }
+.flow span { display: block; font-size: 14px; color: var(--muted); }
+.flow li.alt::before { border-color: var(--warm); }
+
+.more-h { margin: 56px 0 0; font-size: 22px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; transition: border-color .2s, transform .2s; }
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card .kind { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.card h3 { font-size: 22px; letter-spacing: -0.015em; }
+.card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
+.card li { padding-left: 18px; position: relative; }
+.card li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--accent); }
+.card .tags { margin-top: auto; padding-top: 6px; }
+.card .tags span { background: var(--bg); }
+
+/* Architecture */
+.arch { margin-top: 36px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
+.arch .vt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
+.arch-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.2fr) auto minmax(0, 1fr); gap: 14px; align-items: center; }
+.node { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--bg); min-width: 0; }
+.node b { display: block; font-weight: 500; font-size: 15px; }
+.node span { display: block; font-size: 13px; color: var(--muted); }
+.node.hot { border-color: var(--accent); }
+.arr { color: var(--accent); font-family: var(--font-mono); font-size: 20px; text-align: center; }
+.arr::before { content: "\2192"; }
+.loop { margin-top: 20px; border: 1px dashed var(--accent); border-radius: 12px; padding: 14px 16px; display: flex; gap: 12px; align-items: baseline; color: var(--muted); font-size: 14px; }
+.loop b { color: var(--accent); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; flex: none; }
+.ideas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.idea { padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); min-width: 0; }
+.idea h3 { font-size: 19px; letter-spacing: -0.01em; }
+.idea p { margin: 10px 0 0; font-size: 14.5px; color: var(--muted); }
+
+/* Services */
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
+.svc .card { gap: 12px; }
+.svc .card h3 { font-size: 20px; }
+.svc .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* Process */
+.steps { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; counter-reset: s; }
+.steps li { border-top: 2px solid var(--accent); padding-top: 18px; counter-increment: s; }
+.steps li::before { content: "Step " counter(s); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.steps h3 { font-size: 21px; margin-top: 8px; }
+.steps p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; margin-top: 36px; align-items: start; }
+.about-grid p { margin: 0 0 16px; color: var(--muted); font-size: 17px; max-width: 60ch; }
+.about-grid p strong { color: var(--ink); font-weight: 500; }
+.worked { margin: 26px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.worked li { font-size: 15px; color: var(--muted); }
+.worked b { color: var(--ink); font-weight: 500; }
+
+
+/* FAQ */
+.faq { margin-top: 32px; border-top: 1px solid var(--line); max-width: 820px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; font-weight: 500; font-size: 17px; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--accent); font-family: var(--font-mono); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin: 0 0 20px; color: var(--muted); max-width: 64ch; }
+
+/* Contact */
+.contact { margin-block: 88px 0; padding-block: 72px; border-top: 1px solid var(--line); background: radial-gradient(ellipse at 85% 0%, var(--glow), transparent 60%); }
+.contact h2 { max-width: 20ch; font-size: clamp(32px, 5vw, 54px); }
+.contact-list { display: grid; gap: 12px; margin-top: 36px; max-width: 520px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.row .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; }
+.row .v { font-size: 17px; word-break: break-all; user-select: all; }
+.row > div { min-width: 0; }
+.copy { flex: none; font: 500 13px/1 var(--font-body); padding: 9px 14px; border-radius: 8px; cursor: pointer; background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.copy:hover { border-color: var(--accent); }
+.where { margin-top: 18px; color: var(--muted); font-size: 15px; }
+footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 1000px) {
+  .nav a:not(.btn) { display: none; }
+  .svc, .ideas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 880px) {
+  .hero-grid, .about-grid, .case { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .case.rev .case-text { order: 0; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .arch-row { grid-template-columns: minmax(0, 1fr); }
+  .arr::before { content: "\2193"; }
+}
+@media (max-width: 600px) {
+  .section { padding-block: 64px 0; }
+  .hero { padding-block: 36px 0; }
+  .card, .viz, .arch { padding: 22px; }
+  .svc, .ideas, .steps { grid-template-columns: minmax(0, 1fr); }
+  .kpis li { padding: 14px 8px 14px 0; }
+  .kpis li + li { padding-left: 10px; }
+  .kpis span { font-size: 12px; }
+  .brand small { display: none; }
+  .loop { flex-direction: column; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+  .card:hover { transform: none; }
+  .track { animation: none; width: auto; }
+  .track ul + ul { display: none; }
+  .track ul { flex-wrap: wrap; gap: 10px 28px; }
+}
+</style>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Pavan<span>.</span>D<small>AI Engineer</small></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#contact">Get in touch →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="badge"><i></i>Available for new projects</p>
+          <h1>Integrate AI into your business. <em>Working 24/7.</em></h1>
+          <p class="lede">I design and build <strong>complete end-to-end AI applications, websites, chatbots and RAG systems</strong> that answer questions and handle work around the clock, so your team can focus on growth.</p>
+          <p class="tagline"><span>Agentic AI</span><span>RAG and chatbots</span><span>LLM evaluation and ML</span></p>
+          <div class="cta-row">
+            <a class="btn" href="#contact">Book a free strategy call →</a>
+            <a class="btn ghost" href="#work">See my work</a>
+          </div>
+        </div>
+        <div class="hv">
+          <div class="hv-top">
+            <span class="hv-title">Your AI · every channel</span>
+            <span class="hv-live"><i></i>Always on</span>
+          </div>
+          <ul class="chips">
+            <li>Website</li><li>Chatbot</li><li>Documents</li><li>Agents</li><li>Dashboards</li>
+          </ul>
+          <div class="chat" role="group" aria-label="Example chatbot conversation with a fictional store">
+            <div class="chat-head"><span class="av">C</span><div><b>Cartwise Store</b><small>AI assistant · online</small></div></div>
+            <div class="msg bot">Hi, I'm the Cartwise assistant. How can I help?<time>10:02</time></div>
+            <div class="msg user">Where is my order 1042?<time>10:02</time></div>
+            <div class="msg bot">Order 1042 shipped yesterday and arrives Friday. Want the tracking link?<time>10:02</time></div>
+            <div class="msg user">Can I return the blue jacket?<time>10:03</time></div>
+            <div class="msg bot">Yes, returns are free within 30 days of delivery.<span class="src">Source: Returns policy, page 2</span><time>10:03</time></div>
+            <div class="chat-foot">✓ Answer cited from your documents</div>
+          </div>
+          <p class="hv-note">Example conversation with a fictional store</p>
+        </div>
+      </div>
+
+      <ul class="kpis">
+        <li><b>5</b><span>AI projects built</span></li>
+        <li><b>3</b><span>core services: apps, websites, chatbots</span></li>
+        <li><b>4</b><span>evaluation and reliability tools</span></li>
+      </ul>
+
+      <div class="tools">
+        <p class="cap">Tools I ship with</p>
+        <div class="marq">
+          <div class="track">
+            <ul>
+              <li>LangGraph</li><li>LangChain</li><li>AutoGen</li><li>MCP</li><li>FastAPI</li><li>PyTorch</li><li>Hugging Face</li><li>Redis</li><li>OpenTelemetry</li><li>Weights &amp; Biases</li><li>PySpark</li><li>OpenCV</li>
+            </ul>
+            <ul aria-hidden="true">
+              <li>LangGraph</li><li>LangChain</li><li>AutoGen</li><li>MCP</li><li>FastAPI</li><li>PyTorch</li><li>Hugging Face</li><li>Redis</li><li>OpenTelemetry</li><li>Weights &amp; Biases</li><li>PySpark</li><li>OpenCV</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <p class="eyebrow">Selected work</p>
+      <h2>Systems I've built and what they do.</h2>
+      <p class="lede lede-main"><strong>I built end-to-end AI applications</strong>, from the model and backend to the interface people use.</p>
+      <p class="lede">Five projects across evaluation, observability and infrastructure. Two are shown in full, the rest follow below.</p>
+
+      <div class="cases">
+        <article class="case rev">
+          <div class="case-text">
+            <p class="kind">Infrastructure · Observability</p>
+            <h3>One gateway for every model call.</h3>
+            <p><span class="lab">What I built</span>A central LLM API gateway on FastAPI and Redis that enforces per-team token rate limits and monthly budget caps. When a provider returns HTTP 429 or goes down, traffic fails over to a secondary provider with zero downtime.</p>
+            <p><span class="lab">What you can see</span>OpenTelemetry tracks model latency, error rates and organization-wide API spend in one place.</p>
+            <div class="tags"><span>FastAPI</span><span>Redis</span><span>OpenTelemetry</span><span>Fallback routing</span></div>
+          </div>
+          <div class="viz">
+            <p class="vt">Request path</p>
+            <ol class="flow">
+              <li><b>Team request</b><span>Arrives at the gateway</span></li>
+              <li><b>Limit check</b><span>Redis token rate limit and monthly budget cap</span></li>
+              <li><b>Primary provider</b><span>Normal route for the call</span></li>
+              <li class="alt"><b>Fallback on 429 or outage</b><span>Secondary provider takes over, no downtime</span></li>
+              <li><b>Telemetry</b><span>Latency, error rate and spend recorded</span></li>
+            </ol>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-text">
+            <p class="kind">Evaluation · CI/CD</p>
+            <h3>Catch quality drops before production does.</h3>
+            <p><span class="lab">What I built</span>An automated CI/CD evaluation pipeline that benchmarks LLM outputs against a golden evaluation dataset every time a prompt or model changes. Semantic similarity and LLM-as-a-judge scoring flag regressions before deployment.</p>
+            <div class="tags"><span>CI/CD</span><span>Golden dataset</span><span>LLM-as-a-judge</span><span>Semantic similarity</span></div>
+          </div>
+          <div class="viz">
+            <p class="vt">On every change</p>
+            <ol class="flow">
+              <li><b>Prompt or model change</b><span>Triggers the pipeline</span></li>
+              <li><b>Golden dataset run</b><span>Outputs compared with reference answers</span></li>
+              <li><b>Scoring</b><span>Semantic similarity plus LLM-as-a-judge</span></li>
+              <li class="alt"><b>Regression flagged</b><span>Caught before it reaches production</span></li>
+            </ol>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="more-h">More projects</h3>
+      <div class="grid">
+        <article class="card">
+          <span class="kind">Observability</span>
+          <h3>Failure Forensics Tool for AI Pipelines</h3>
+          <ul>
+            <li>Observability layer that traces intermediate execution states, token latency and cost across multi-step AI workflows.</li>
+            <li>Root-cause engine that pinpoints where failures start in multi-agent chains and retrieval steps.</li>
+            <li>Bad outputs and failure traces flow back into an active evaluation dataset for continuous fine-tuning.</li>
+          </ul>
+          <div class="tags"><span>Tracing</span><span>Multi-agent</span><span>Root-cause analysis</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Evaluation</span>
+          <h3>LLM Output Arbitration System</h3>
+          <ul>
+            <li>Multi-agent critique pipeline that sends model outputs to independent evaluator models for accuracy, consistency and completeness.</li>
+            <li>Arbitration with consensus scoring flags hallucinations and produces structured confidence scores.</li>
+            <li>Actionable callouts cut down unreliable outputs in production.</li>
+          </ul>
+          <div class="tags"><span>Multi-agent</span><span>Consensus scoring</span><span>Hallucination detection</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Prompt operations</span>
+          <h3>Prompt Versioning and A/B Testing Platform</h3>
+          <ul>
+            <li>Central prompt-management engine that treats system prompts as version-controlled artifacts, with instant rollback.</li>
+            <li>Dynamic traffic splitting runs several prompt variants side by side in production.</li>
+            <li>Statistical hypothesis testing picks a winner on custom quality, cost and latency metrics.</li>
+          </ul>
+          <div class="tags"><span>Versioning</span><span>A/B testing</span><span>Hypothesis testing</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="architecture">
+    <div class="wrap">
+      <p class="eyebrow">Under the hood</p>
+      <h2>Not one prompt. A pipeline with a judge.</h2>
+      <p class="lede">Reliable LLM output comes from checking it. This is the pattern behind my arbitration and forensics projects.</p>
+
+      <div class="arch" role="img" aria-label="Diagram: a model output goes to three independent evaluators, then to an arbitrator that produces a confidence score and callouts. Failed outputs and traces return to the evaluation dataset.">
+        <p class="vt">Example: output arbitration</p>
+        <div class="arch-row">
+          <div class="node"><b>Model output</b><span>From any LLM or agent chain</span></div>
+          <span class="arr"></span>
+          <div class="stackcol">
+            <div class="node"><b>Accuracy evaluator</b><span>Independent model</span></div>
+            <div class="node"><b>Consistency evaluator</b><span>Independent model</span></div>
+            <div class="node"><b>Completeness evaluator</b><span>Independent model</span></div>
+          </div>
+          <span class="arr"></span>
+          <div class="node hot"><b>Arbitrator</b><span>Consensus score, hallucination flags, structured confidence and actionable callouts</span></div>
+        </div>
+        <div class="loop"><b>Feedback loop</b><span>Bad outputs and failure traces return to the evaluation dataset, so the next regression run catches them.</span></div>
+      </div>
+
+      <div class="ideas">
+        <div class="idea"><h3>Independent evaluators</h3><p>Separate models judge accuracy, consistency and completeness, so one model never grades its own work.</p></div>
+        <div class="idea"><h3>Consensus scoring</h3><p>Evaluator scores are combined into a structured confidence score that flags hallucinations.</p></div>
+        <div class="idea"><h3>Golden datasets</h3><p>Every prompt or model change is benchmarked against reference answers in CI.</p></div>
+        <div class="idea"><h3>Trace everything</h3><p>Intermediate states, token latency and cost are recorded across multi-step workflows.</p></div>
+        <div class="idea"><h3>Versioned prompts</h3><p>System prompts are version-controlled artifacts with instant rollback.</p></div>
+        <div class="idea"><h3>Cost and latency aware</h3><p>Prompt tests and gateway telemetry include cost and latency, not just quality.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2>What I can build for you.</h2>
+      <p class="lede">From a finished product people can use, to the AI infrastructure underneath it. The infrastructure services map to the projects shown above.</p>
+      <div class="svc">
+        <article class="card">
+          <h3>End-to-End AI Applications</h3>
+          <p>A complete product, from the model and backend to the interface people use.</p>
+          <ul><li>LLM and RAG features built in</li><li>FastAPI backends</li><li>One person owns the whole build</li></ul>
+        </article>
+        <article class="card">
+          <h3>Website Development</h3>
+          <p>Fast, responsive websites, with AI features connected where you need them.</p>
+          <ul><li>Works on phone and desktop</li><li>Chatbot or AI search built in</li><li>Clean, simple structure</li></ul>
+        </article>
+        <article class="card">
+          <h3>Customized Chatbots</h3>
+          <p>Chatbots trained on your domain, and agents that handle multi-step work.</p>
+          <ul><li>Answers grounded in your documents</li><li>LangGraph, AutoGen and MCP agents</li><li>DialogFlow, LangFlow and N8N workflows</li></ul>
+        </article>
+        <article class="card">
+          <h3>LLM and RAG Systems</h3>
+          <p>Question answering over your documents, including PDFs with text and images.</p>
+          <ul><li>Multi-modal retrieval</li><li>Embeddings and RL-tuned retrieval</li><li>Open-source model generation</li></ul>
+        </article>
+        <article class="card">
+          <h3>Evaluation and Regression Testing</h3>
+          <p>Automated checks that run whenever a prompt or model changes.</p>
+          <ul><li>Golden evaluation datasets</li><li>LLM-as-a-judge scoring</li><li>CI/CD integration</li></ul>
+        </article>
+        <article class="card">
+          <h3>Observability for AI Pipelines</h3>
+          <p>See where multi-step workflows slow down, cost more or fail.</p>
+          <ul><li>Execution, latency and cost tracing</li><li>Root-cause analysis</li><li>Failures fed back into evals</li></ul>
+        </article>
+        <article class="card">
+          <h3>LLM Gateway and Cost Control</h3>
+          <p>One entry point for every model call, with budgets and failover.</p>
+          <ul><li>Per-team rate limits and budgets</li><li>Fallback routing on 429 or outage</li><li>OpenTelemetry monitoring</li></ul>
+        </article>
+        <article class="card">
+          <h3>Fine-Tuning and Deployment</h3>
+          <p>Domain-specific models from open-source foundations.</p>
+          <ul><li>PEFT/LoRA training</li><li>Benchmarks against the base model</li><li>GGUF/AWQ packaging for inference</li></ul>
+        </article>
+        <article class="card">
+          <h3>Prompt Management and A/B Testing</h3>
+          <p>Treat prompts like code, and test changes on live traffic.</p>
+          <ul><li>Versioning and instant rollback</li><li>Traffic splitting between variants</li><li>Statistical winner selection</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="wrap">
+      <p class="eyebrow">Process</p>
+      <h2>From first call to a system you can measure.</h2>
+      <ol class="steps">
+        <li><h3>Discovery call</h3><p>We talk through the problem, the data and what success looks like.</p></li>
+        <li><h3>Scope and plan</h3><p>A written scope with deliverables, timeline and the metrics we will track.</p></li>
+        <li><h3>Build and test</h3><p>Working versions early, tested against an evaluation dataset built from your real cases.</p></li>
+        <li><h3>Launch and monitor</h3><p>Go live with tracing and regression checks in place, then tune from what the data shows.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <p class="eyebrow">About me</p>
+      <h2>An AI engineer who treats evaluation as part of the build.</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm Pavan, an AI/ML engineer who builds <strong>complete end-to-end AI applications, websites and chatbots</strong>. Under them sit LLM and RAG pipelines that I improve with reinforcement learning and multi-modal inputs.</p>
+          <p>Much of my project work sits around the model: <strong>regression checks, failure tracing, output arbitration, prompt A/B testing</strong> and a rate-limited gateway with fallback routing. The goal is a system that tells you when it gets worse, and why.</p>
+          <ul class="worked">
+            <li><b>Applications:</b> complete end-to-end AI apps, websites and chatbots</li>
+            <li><b>Reliability:</b> evaluation, arbitration and forensics tooling</li>
+            <li><b>Infrastructure:</b> LLM gateway with budgets and failover</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions before we start.</h2>
+      <div class="faq">
+        <details><summary>What should I send in my first message?</summary><p>A short description of the problem, the kind of data or documents involved, and what a good result would look like. I will reply with questions or a suggested next step.</p></details>
+        <details><summary>Will the AI make things up?</summary><p>I build systems to reduce it: answers grounded in retrieved documents, independent evaluator models, consensus scoring that flags hallucinations, and regression tests on a golden dataset.</p></details>
+        <details><summary>Can you work with the models and tools I already use?</summary><p>Yes, in most cases. My gateway and evaluation work is built to sit across providers, and I work with both hosted and open-source models.</p></details>
+        <details><summary>How will I know the system is still working after launch?</summary><p>Tracing records latency, token cost and failures at each step, and evaluation runs on every prompt or model change, so quality drops show up before users notice them.</p></details>
+        <details><summary>Can you fine-tune a model on my domain?</summary><p>Yes. I build LoRA fine-tuning pipelines, benchmark the result against the base model, and package the weights for efficient inference.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Have an AI system to build or fix? Let's talk.</h2>
+      <div class="contact-list">
+        <div class="row">
+          <div><span class="k">Email</span><span class="v" id="v-email">dpavan0912@gmail.com</span></div>
+          <button class="copy" type="button" data-target="v-email">Copy</button>
+        </div>
+        <div class="row">
+          <div><span class="k">Phone</span><span class="v" id="v-phone">+91 9676289634</span></div>
+          <button class="copy" type="button" data-target="v-phone">Copy</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Pavan D</span>
+    <span>AI Engineer</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* Copy buttons */
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-target'));
+      var text = el.textContent.trim();
+      function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      }
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+})();
+</script>
+
+</body></html>
